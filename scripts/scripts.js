@@ -100,11 +100,6 @@ $( document ).ready(function() {
 		$('#chaScore').text(`${player.abilityScores.charisma}`);
 	}
 
-	// $('.additionalAbilityScore').on('click', function(e){
-	// 	e.preventDefault();
-	// 	$(this).toggleClass('proficient');
-	// })
-
 	// Function  to calculate Spellcasting stats for appropriate classes
 
 	const spellSaveDC = () => {
@@ -276,10 +271,9 @@ $( document ).ready(function() {
 					halfElfBasics();
 
 
-
 				} else {
 
-				$('.form').append('<p>Please choose another race (Dwarf, Elf, Halfling, Human, or Dragonborn, or Gnome), this one is still being worked on!</p>');
+				$('.form').append('<p>Please choose another race (Dwarf, Elf, Halfling, Human, or Dragonborn, Gnome, or Half-Elf), this one is still being worked on!</p>');
 			}
 		});
 		
@@ -841,12 +835,15 @@ $( document ).ready(function() {
 			<h4>Ability Score Increases</h4>
 			<p>Half-Elves get +2 Charisma and two more ability scores increase by one. Which two abilities would you like to increase?</p>
 			<ul class="abilityScoreOption">
-				<li class=scoreOption>Strength</li>
-				<li class=scoreOption>Dexterity</li>
-				<li class=scoreOption>Constitution</li>
-				<li class=scoreOption>Intelligence</li>
-				<li class=scoreOption>Wisdom</li>
+				<li class=scoreOption id=strOption value=Strength>Strength</li>
+				<li class=scoreOption id=dexOption>Dexterity</li>
+				<li class=scoreOption id=conOption>Constitution</li>
+				<li class=scoreOption id=intOption>Intelligence</li>
+				<li class=scoreOption id=wisOption>Wisdom</li>
 			</ul>
+
+			<h4>Skills</h4>
+			<p>You gain proficiency in two skills of your choice, please select them on the list below.</p>
 
 			<div class="submit">
 				<input type="submit" value="Next" id="submitHalfElfDetails">
@@ -858,9 +855,40 @@ $( document ).ready(function() {
 			$(this).toggleClass('increase');
 		})
 
-		// THIS IS INCOMPLETE, FIGURE OUT HOW TO IMPLEMENT THE SELECTION
+		submitHalfElfDetails();
 	}
 
+const submitHalfElfDetails = () => {
+	$('#submitHalfElfDetails').on('click', function(e) {
+		e.preventDefault();
+
+		let language = $('[name=halfElfLanguage] option:selected').val();
+		newPlayer.languages.push(language);
+		$('#languages').append(`<li>${language}</li>`);
+
+		if ($("#strOption").hasClass('increase')) {
+		  newPlayer.abilityScores.strength = newPlayer.abilityScores.strength + 1;
+		}
+		if ($('#dexOption').hasClass('increase')) {
+			newPlayer.abilityScores.dexterity = newPlayer.abilityScores.dexterity + 1;
+		}
+		if ($('#conOption').hasClass('increase')) {
+			newPlayer.abilityScores.constitution = newPlayer.abilityScores.constitution + 1;
+		}
+		if ($('#intOption').hasClass('increase')) {
+			newPlayer.abilityScores.intelligence = newPlayer.abilityScores.intelligence + 1;
+		}
+		if ($('#wisOption').hasClass('increase')) {
+			newPlayer.abilityScores.wisdom = newPlayer.abilityScores.wisdom + 1;
+		}
+
+		updateAbilityScores(newPlayer);
+		updateAbilityModifiers(newPlayer);
+	
+		addClassSelection();
+	})
+
+}
 
 
 
@@ -1345,7 +1373,7 @@ $( document ).ready(function() {
 	
 
 
-
+//add code to get skill proficiencies to player object at the end
 
 
 
