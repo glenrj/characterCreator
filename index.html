@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>D&D 5e Character Creator</title>
+	<link href="https://fonts.googleapis.com/css?family=Oxygen|Ubuntu:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="styles/styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="scripts/scripts.js"></script>
+</head>
+<body>
+	<header class="wrapper">
+		<h1>Dungeons and Dragons 5e Character Creator</h1>
+	</header>
+	<main class="wrapper">
+		<div class="description">
+			<p>Welcome to the Dungeons and Dragons Character Creator! Please note that this creator is limited to level one characters using the classes and races from the Fifth Edition Player's Handbook and is meant to function as a character creation sheet in tandem with the book, not a standalone guide.</p>
+		</div>
+		<!-- BASIC INFO ABOUT PLAYER AND CHARACTER -->
+		<div class="form">
+			<form action="">
+				<label for="playerName">Player:</label>
+				<input type="text" name="playerName">
+
+				<label for="characterName">Character Name:</label>
+				<input type="text" name="characterName">
+
+				<label for="alignment">Character Alignment:</label>
+				<select name="alignment">
+					<option value="Lawful Good">Lawful Good</option>
+					<option value="Neutral Good">Neutral Good</option>
+					<option value="Chaotic Good">Chaotic Good</option>
+					<option value="Lawful  Neutral">Lawful Neutral</option>
+					<option value="True Neutral">True Neutral</option>
+					<option value="Chaotic Neutral">Chaotic Neutral</option>
+					<option value="Lawful Evil">Lawful Evil</option>
+					<option value="Neutral Evil">Neutral Evil</option>
+					<option value="Chaotic Evil">Chaotic Evil</option>
+				</select>
+				<div class='submit'>
+					<input type="submit" value="New Character" id="submitBasics">
+				</div>
+			</form>
+		</div>
+		<!-- BASIC INFO ABOUT PLAYER AND CHARACTER -->
+		<div class="basic">
+			<p>Character Name: <span id="characterName"></span></p>
+			<p>Player Name: <span id="playerName"></span></p>
+			<p>Experience Points: <span id="currentXP"></span></p>
+			<p>Current Level: <span id="currentLevel"></span></p>
+			<p>Class: <span id=characterClass></span></p>
+			<p>Race: <span id="race"></span></p>
+			<p>Alignment: <span id="alignment"></span></p>
+			<p>Background: <span id="background"></span></p>
+		</div>
+		<!-- GENERAL STATS -->
+		<div class="stats">
+			<p>Initiative: <span id="initiative"></span></p>
+			<p>Speed: <span id="speed"></span></p>
+			<p>Current HP: <span id="currentHP"></span></p>
+			<p>Max HP: <span id="maxHP"></span></p>
+			<p>Temporary HP: </p> <!-- no span because this stat will never come from character creation -->
+			<p>Hit Dice: <span id="hitDice"></span></p>
+			<p>Armor Class (AC):</p>
+			<p>Inspiraton:</p>
+		</div>
+		<!-- ABILITY SCORES AND MODIFIERS -->
+		<div class="abilityScores">
+			<div class="primaryScores">
+				<div class="score">
+					<h2>Strength</h2>
+					<p class="abilityScore" id="strScore">Ability Score</p>
+					<p class="abilityMod" id="strMod">Ability Modifier</p>
+				</div>
+				<div class="score">
+					<h2>Dexterity</h2>
+					<p class="abilityScore" id="dexScore">Ability Score</p>
+					<p class="abilityMod" id="dexMod">Ability Modifier</p>
+				</div>
+				<div class="score">
+					<h2>Constitution</h2>
+					<p class="abilityScore" id="conScore">Ability Score</p>
+					<p class="abilityMod" id="conMod">Ability Modifier</p>
+				</div>
+				<div class="score">
+					<h2>Intelligence</h2>
+					<p class="abilityScore" id="intScore">Ability Score</p>
+					<p class="abilityMod" id="intMod">Ability Modifier</p>
+				</div>
+				<div class="score">
+					<h2>Widsom</h2>
+					<p class="abilityScore" id="wisScore">Ability Score</p>
+					<p class="abilityMod" id="wisMod">Ability Modifier</p>
+				</div>
+				<div class="score">
+					<h2>Charisma</h2>
+					<p class="abilityScore" id="chaScore">Ability Score</p>
+					<p class="abilityMod" id="chaMod">Ability Modifier</p>
+				</div>
+			</div>
+			<div class="secondaryScores">
+				<p>Passive Wisdom (Perception): <span id="passivePerception"></span></p>
+				<p>Proficency Bonus: <span id=proficiencyBonus></span></p>
+			</div>
+		</div>
+		<!-- SKILLS AND SAVING THROWS -->
+		<div class="lists">
+			<div class="skillLists">
+				<div class="skills">
+					<h3>Skills</h3>
+					<ul>
+						<li class="skill" id="acrobatics">Acrobatics (Dex)</li>
+						<li class="skill" id="animalHandling">Animal Handling (Wis)</li>
+						<li class="skill" id="arcana">Arcana (Int)</li>
+						<li class="skill" id="atheletics">Athletics (Str)</li>
+						<li class="skill" id="deception">Deception (Cha)</li>
+						<li class="skill" id="history">History (Int)</li>
+						<li class="skill" id="insight">Insight (Wis)</li>
+						<li class="skill" id="intimidation">Intimidation (Cha)</li>
+						<li class="skill" id="investigation">Investigation (Int)</li>
+						<li class="skill" id="medicine">Medicine (Wis)</li>
+						<li class="skill" id="nature">Nature (Int)</li>
+						<li class="skill" id="perception">Perception (Wis)</li>
+						<li class="skill" id="performance">Performance (Cha)</li>
+						<li class="skill" id="persuasion">Persuasion (Cha)</li>
+						<li class="skill" id="religion">Religion (Int)</li>
+						<li class="skill" id="sleight of Hand">Sleight of Hand (Dex)</li>
+						<li class="skill" id="stealth">Stealth (Dex)</li>
+						<li class="skill" id="survival">Survival (Wis)</li>
+					</ul>
+				</div>
+				<div class="savingThrows">
+					<h3>Saving Throws</h3>
+					<ul>
+						<li id="strSavingThrow">Strength</li>
+						<li id="dexSavingThrow">Dexterity</li>
+						<li id="conSavingThrow">Constitution</li>
+						<li id="intSavingThrow">Intelligence</li>
+						<li id="wisSavingThrow">Wisdom</li>
+						<li id="chaSavingThrow">Charisma</li>
+					</ul>
+				</div>
+			</div>
+			<!-- PROFICIENCIES -->
+			<div class="proficiencies">
+				<h3>Proficiencies</h3>
+				<p>Misc. Proficiencies:</p>
+				<ul id="proficiencies">
+					<!-- Populate w/ JQuery -->
+				</ul>
+				<p>Languages:</p>
+				<ul id="languages">
+					<li>Common</li>
+					<!-- Populate w/ JQuery -->	
+				</ul>
+			</div>
+			<!-- ABILITIES & FEATS -->
+			<div class="abilities">
+				<h3>Abilities and Features</h3>
+				<ul id="abilities">
+					<!-- Populate w/ JQuery -->	
+				</ul>
+			</div>
+			<!-- INVENTORY -->
+			<div class="inventory">
+				<h3>Inventory</h3>
+				<p>Weapons:</p>
+				<ul id="weapons">
+					<!-- Populate w/ JQuery -->		
+				</ul>
+				<p>Armor:</p>
+				<ul id="armor">
+					<!-- Populate w/ JQuery -->		
+				</ul>
+				<p>Misc:</p>
+				<ul id="inventory">
+					<!-- Populate w/ JQuery -->		
+				</ul>
+			</div>
+			
+		</div>
+		<!-- ROLEPLAYING -->
+		<div class="character">
+			<div class="characterTrait">
+				<h4>Personality Traits</h4>
+			</div>
+			<div class="characterTrait">
+				<h4>Ideals</h4>
+			</div>
+			<div class="characterTrait">
+				<h4>Bonds</h4>
+			</div>
+			<div class="characterTrait">
+				<h4>Flaws</h4>
+			</div>
+		</div>
+		<!-- SPELLCASTING -->
+		<div class="spellcasting">
+			<h3>Spellcasting</h3>
+			<div class="spellTop">
+				<p>Spellcasting Class: <span id="spellcastingClass"></span></p>
+				<p>Spellcasting Ability: <span id="spellcastingAbility"></span></p>
+				<p>Spell Save DC: <span id="spellSaveDC"></span></p>
+				<p>Spell Attack Bonus: <span id=spellAttackMod></span></p>
+			</div>
+			<div class="spellBottom">
+				<div>
+					<h4>Cantrips</h4>
+					<ul id="cantrips">
+						<!-- Populate w/ JQuery -->	
+					</ul>
+				</div>
+				<div>
+					<h4>First Level Spells</h4>
+					<ul id="firstLevelSpells">
+						<!-- Populate w/ JQuery -->	
+					</ul>
+				</div>
+				<div>
+					<h4>First Level Spell Slots: <span id="firstLevelSpellSlots"></span></h4>
+					<p>Slots Expended:</p> <!-- Changing stat from gameplay, not creation. -->
+				</div>
+			</div>
+		</div>
+	</main>	
+</body>
+</html>
