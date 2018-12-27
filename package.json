@@ -1,0 +1,29 @@
+{
+  "name": "charactercreator",
+  "version": "1.0.0",
+  "description": "DnD 5e Character Creator",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glenrj/characterCreator.git"
+  },
+  "author": "Glen McCann",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glenrj/characterCreator/issues"
+  },
+  "homepage": "https://github.com/glenrj/characterCreator#readme",
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "browser-sync": "^2.26.3",
+    "gulp-autoprefixer": "^6.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^4.0.2"
+  },
+  "dependencies": {}
+}

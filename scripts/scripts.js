@@ -1,13 +1,3 @@
-
-//Hello! Some of the fields are going to be intentionally blank because it turns out that adapting a 300+ page manual into an app takes a very long time so I didn't get to all of them. I wanted to point out what is intentional.
-//Every field that I covered in project 1 is functional here, plus some more stats that I forgot existed until I had to type out the character sheet as html. However, I only had time to do two races (Dwarf and Elf) and two classes (Bard and Barbarian). I made sure that one class used spells and one didn't to demonstrate the difference.
-//The Personality fields will be blank no matter what. I included them because a) I am going to keep working on this in my spare time until it's done just for my friends and b) You could hypothetically print out the page and keep going, like real D&D.
-//Background will also be blank for the same reason. I missed it in project one (I am not very experienced in D&D) but wanted to make an accurate character sheet. I focused on making the pre-existing stuff work so I didn't get to it because it would be another very long thing almost identical to the Race and Class sections.
-//Temporary HP, Inspiration and Armor Class (AC) will always be blank. They come from gameplay, not character creation (AC is based on your armor but what's in your inventory is different than what you decide to equip, so that's up to the player and their game).
-//Only spellcasters (in this case just Bards) will have a full spellcasting section. High Elves are not spellcasters but they learn one Wizard spell so theirs will be partially filled in.
-
-
-
 //New Player Object
 
 const newPlayer = {
