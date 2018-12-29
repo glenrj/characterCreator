@@ -269,12 +269,15 @@ $( document ).ready(function() {
 					addSubmitGnomeSubraceHandler();
 				} else if(race === 'Half-Elf') {
 					halfElfBasics();
-
-
+				} else if (race === 'Half-Orc') {
+					halfOrcBasics();
+				} else if (race === 'Tiefling') {
+					tieflingBasics();
 				} else {
+					$('.form').append('<p>Something went wrong! Please try again.</p>');
+				}
 
-				$('.form').append('<p>Please choose another race (Dwarf, Elf, Halfling, Human, or Dragonborn, Gnome, or Half-Elf), this one is still being worked on!</p>');
-			}
+			
 		});
 		
 	}
@@ -858,61 +861,83 @@ $( document ).ready(function() {
 		submitHalfElfDetails();
 	}
 
-const submitHalfElfDetails = () => {
-	$('#submitHalfElfDetails').on('click', function(e) {
-		e.preventDefault();
+	const submitHalfElfDetails = () => {
+		$('#submitHalfElfDetails').on('click', function(e) {
+			e.preventDefault();
 
-		let language = $('[name=halfElfLanguage] option:selected').val();
-		newPlayer.languages.push(language);
-		$('#languages').append(`<li>${language}</li>`);
+			let language = $('[name=halfElfLanguage] option:selected').val();
+			newPlayer.languages.push(language);
+			$('#languages').append(`<li>${language}</li>`);
 
-		if ($("#strOption").hasClass('increase')) {
-		  newPlayer.abilityScores.strength = newPlayer.abilityScores.strength + 1;
-		}
-		if ($('#dexOption').hasClass('increase')) {
-			newPlayer.abilityScores.dexterity = newPlayer.abilityScores.dexterity + 1;
-		}
-		if ($('#conOption').hasClass('increase')) {
-			newPlayer.abilityScores.constitution = newPlayer.abilityScores.constitution + 1;
-		}
-		if ($('#intOption').hasClass('increase')) {
-			newPlayer.abilityScores.intelligence = newPlayer.abilityScores.intelligence + 1;
-		}
-		if ($('#wisOption').hasClass('increase')) {
-			newPlayer.abilityScores.wisdom = newPlayer.abilityScores.wisdom + 1;
-		}
+			if ($("#strOption").hasClass('increase')) {
+			  newPlayer.abilityScores.strength = newPlayer.abilityScores.strength + 1;
+			}
+			if ($('#dexOption').hasClass('increase')) {
+				newPlayer.abilityScores.dexterity = newPlayer.abilityScores.dexterity + 1;
+			}
+			if ($('#conOption').hasClass('increase')) {
+				newPlayer.abilityScores.constitution = newPlayer.abilityScores.constitution + 1;
+			}
+			if ($('#intOption').hasClass('increase')) {
+				newPlayer.abilityScores.intelligence = newPlayer.abilityScores.intelligence + 1;
+			}
+			if ($('#wisOption').hasClass('increase')) {
+				newPlayer.abilityScores.wisdom = newPlayer.abilityScores.wisdom + 1;
+			}
+
+			updateAbilityScores(newPlayer);
+			updateAbilityModifiers(newPlayer);
+			addClassSelection();
+		})
+	}
+
+	const halfOrcBasics = () => {
+		newPlayer.abilityScores.strength = newPlayer.abilityScores.strength + 2;
+		newPlayer.abilityScores.constitution = newPlayer.abilityScores.constitution + 1;
+
+		newPlayer.speed = 30;
+		$('#speed').text(30);
+
+		newPlayer.abilities.push('Darkvision', 'Savage Attacks');
+		$('#abilities').append(`<li>Darkvision</li>
+			<li>Savage Attacks</li>`);
+
+		newPlayer.skillProficiencies.push('Intimidation');
+		$('#intimidation').addClass('proficient');
+
+		newPlayer.languages.push('Orc');
+		$('#languages').append(`<li>Orc</li>`);
 
 		updateAbilityScores(newPlayer);
 		updateAbilityModifiers(newPlayer);
-	
 		addClassSelection();
-	})
+	}
 
-}
+	const tieflingBasics = () => {
+		newPlayer.abilityScores.intelligence = newPlayer.abilityScores.intelligence + 1;
+		newPlayer.abilityScores.charisma = newPlayer.abilityScores.charisma + 2;
+
+		newPlayer.speed = 30;
+		$('#speed').text(30);
+
+		newPlayer.abilities.push('Darkvision', 'Hellish Resistance', 'Infernal Legacy');
+		$('#abilities').append(`<li>Darkvision</li>
+			<li>Hellish Resistance</li>
+			<li>Infernal Legacy</li>`);
+
+		newPlayer.spells.cantrips.push('Thaumaturgy - Charisma spellcasting ability');
+		$('#cantrips').append(`<li>Thaumaturgy - Charisma spellcasting ability</li>`);
+
+		newPlayer.languages.push('Infernal');
+		$('#languages').append(`<li>Infernal</li>`);
+
+		updateAbilityScores(newPlayer);
+		updateAbilityModifiers(newPlayer);
+		addClassSelection();
+	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	//Select Class & Set Class Basic Details
+//SELECT CLASS AND SET CLASS DETAILS
 
 	const addClassSelection = () => {
 		$('.form').append(`<form action="">
