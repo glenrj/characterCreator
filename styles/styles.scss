@@ -81,7 +81,8 @@ p {
     margin: 30px 0px;
     border-radius: 5px;
     border: 2px solid $primary-color;
-	&:hover {
+	&:hover,
+	&:focus {
 	background-color: $secondary-color;
 	color: $primary-color;
 	transition: 0.4s;
@@ -90,7 +91,6 @@ p {
 
 .basic {
 	display: flex;
-	flex-direction: column;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	font-size: 1.8rem;
@@ -98,6 +98,9 @@ p {
 	font-family: 'Oxygen', sans-serif;
 	padding: 10px 30px;
 	border-bottom: 1px solid $accent-color;
+	p {
+		min-width: 25%;
+	}
 }
 
 .stats {
@@ -173,7 +176,8 @@ p {
 		margin: 2.5px 0px;
 		padding: 4px;
 	}
-	.skill:hover {
+	.skill:hover,
+	.skill:focus {
 		border: 2px solid $primary-color;
 		}
 	.proficient, .savingThrow {
@@ -230,10 +234,11 @@ p {
 
 .spellTop{
 	display: flex;
+	flex-wrap: wrap;
 	font-family: 'Oxygen', sans-serif;
 	font-size: 1.4rem;
 	p {
-		width: 25%;
+		min-width: 25%;
 	}
 }
 
@@ -293,7 +298,8 @@ p {
 		    font-size: 1.8rem;
 		    border-radius: 5px;
 		    border: 2px solid $primary-color;
-			&:hover {
+			&:hover,
+			&:focus {
 				background-color: $secondary-color;
 				color: $primary-color;
 				transition: 0.4s;
@@ -322,7 +328,8 @@ p {
 		width: 80%;
 		margin: 2.5px 0px;
 		padding: 4px;
-		&:hover {
+		&:hover,
+		&:focus {
 		border: 2px solid $primary-color;
 		}
 	}

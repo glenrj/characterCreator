@@ -978,7 +978,7 @@ $(document).ready(function () {
 			} else if (characterClass == 'Cleric') {
 				clericBasics();
 			} else {
-				$('.form').append('<p>Please choose another class (Barbarian or Bard), this one is still being worked on!</p>')
+				$('.form').append('<p>Please choose another class (Barbarian, Bard, or Cleric), this one is still being worked on!</p>')
 			}
 		})
 
@@ -1435,6 +1435,10 @@ const clericBasics = () => {
 	$('#firstLevelSpellSlots').text(2);
 
 	newPlayer.spellcastingAbility = 'Wisdom';
+	$('#spellcastingAbility').text('Wisdom');
+	$('#spellcastingClass').text('Cleric')
+
+	calculateSpellSaveDC();
 
 	$('.form').append(`<form action="">
 			<h4>Inventory</h4>
@@ -1542,6 +1546,7 @@ const submitClericDetails = () => {
 		e.preventDefault();
 		$(this).addClass('inactive');
 
+		// weapons
 		let clericWeaponOne = $('[name=clericWeaponOne] option:selected').val();
 		let clericWeaponTwo = $('[name=clericWeaponTwo] option:selected').val();
 
@@ -1550,11 +1555,32 @@ const submitClericDetails = () => {
 		<li>${clericWeaponOne}</li>
 		<li>${clericWeaponTwo}</li>`);
 
+		// armor
 		let clericArmor = $('[name=clericArmor] option:selected').val();
 		newPlayer.armor.push(clericArmor);
 		$('#armor').append(`<li>${clericArmor}</li>`);
 
+		// pack
 		let clericPack = $('[name=clericPack] option:selected').val();
+		newPlayer.inventory.push(clericPack);
+		$('#inventory').append(`<li>${clericPack}</li>`);
+
+		//spellcasting
+		//cantrips
+		let cantripOne = $('[name=cantripOne] option:selected').val();
+		let cantripTwo = $('[name=cantripTwo] option:selected').val();
+		let cantripThree = $('[name=cantripThree] option:selected').val();
+		newPlayer.spells.cantrips.push(cantripOne, cantripTwo, cantripThree);
+		$('#cantrips').append(`<li>${cantripOne}</li>
+				<li>${cantripTwo}</li>
+				<li>${cantripThree}</li>`);
+
+		//domain
+		let domain = $('[name=clericDomain] option:selected').val();
+		newPlayer.spells.domain = domain;
+		$('.spellTop').append(`Domain: ${domain}`);
+
+
 	});
 }
 

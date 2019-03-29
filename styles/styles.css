@@ -187,7 +187,7 @@ p {
   margin: 30px 0px;
   border-radius: 5px;
   border: 2px solid #96001C; }
-  .button:hover {
+  .button:hover, .button:focus {
     background-color: #EDEBD7;
     color: #96001C;
     -webkit-transition: 0.4s;
@@ -198,10 +198,6 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
   -webkit-box-pack: justify;
@@ -212,6 +208,8 @@ p {
   font-family: 'Oxygen', sans-serif;
   padding: 10px 30px;
   border-bottom: 1px solid #E3B23C; }
+  .basic p {
+    min-width: 25%; }
 
 .stats {
   font-size: 1.6rem;
@@ -303,7 +301,8 @@ p {
     width: 70%;
     margin: 2.5px 0px;
     padding: 4px; }
-  .skillLists .skill:hover {
+  .skillLists .skill:hover,
+  .skillLists .skill:focus {
     border: 2px solid #96001C; }
   .skillLists .proficient, .skillLists .savingThrow {
     border: 2px solid #96001C; }
@@ -351,10 +350,12 @@ p {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
   font-family: 'Oxygen', sans-serif;
   font-size: 1.4rem; }
   .spellTop p {
-    width: 25%; }
+    min-width: 25%; }
 
 .spellBottom {
   display: -webkit-box;
@@ -412,7 +413,7 @@ p {
       font-size: 1.8rem;
       border-radius: 5px;
       border: 2px solid #96001C; }
-      .form .submit input[type=submit]:hover {
+      .form .submit input[type=submit]:hover, .form .submit input[type=submit]:focus {
         background-color: #EDEBD7;
         color: #96001C;
         -webkit-transition: 0.4s;
@@ -440,7 +441,7 @@ p {
   width: 80%;
   margin: 2.5px 0px;
   padding: 4px; }
-  .abilityScoreOption li:hover {
+  .abilityScoreOption li:hover, .abilityScoreOption li:focus {
     border: 2px solid #96001C; }
 
 .abilityScoreOption .increase {
