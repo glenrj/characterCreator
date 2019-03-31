@@ -977,6 +977,8 @@ $(document).ready(function () {
 				bardBasics();
 			} else if (characterClass == 'Cleric') {
 				clericBasics();
+			} else if (characterClass == 'Druid') {
+				druidBasics();
 			} else {
 				$('.form').append('<p>Please choose another class (Barbarian, Bard, or Cleric), this one is still being worked on!</p>')
 			}
@@ -1580,8 +1582,34 @@ const submitClericDetails = () => {
 		newPlayer.spells.domain = domain;
 		$('.spellTop').append(`Domain: ${domain}`);
 
+		if (domain == 'Knowledge') {
+			$('.form').append(`<form action="">
+		<label for="domainLanguage">Additional Language:</label>
+		<select name="domainLanguage">
+			<option value="Common">Common (Standard)</option>
+			<option value="Dwarvish">Dwarvish (Standard)</option>
+			<option value="Elvish">Elvish (Standard)</option>
+			<option value="Giant">Giant (Standard)</option>
+			<option value="Gnomish">Gnomish (Standard)</option>
+			<option value="Goblin">Goblin (Standard)</option>
+			<option value="Halfling">Halfling (Standard)</option>
+			<option value="Orc">Orc (Standard)</option>
+			<option value="Abyssal">Abyssal (Exotic)</option>
+			<option value="Celestial">Celestial (Exotic)</option>
+			<option value="Draconic">Draconic (Exotic)</option>
+			<option value="Deep Speech">Deep Speech (Exotic)</option>
+			<option value="Infernal">Infernal (Exotic)</option>
+			<option value="Primordial">Primordial (Exotic)</option>
+			<option value="Sylvan">Sylvan (Exotic)</option>
+			<option value="Undercommon">Undercommon (Exotic)</option>
+		</select>
+	`);
+}
 
-	});
+//Options for Druids 
+
+const druidBasics = () => {
+	console.log('woops, still adding some Cleric domain info before moving on to Druid.')
 }
 
 
