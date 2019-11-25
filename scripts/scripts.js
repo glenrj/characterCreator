@@ -1537,13 +1537,12 @@ const clericBasics = () => {
 			<div class="submit">
 				<input type="submit" value="Finish" id="submitClericDetails">
 			</div>
-
 			`)
 
 			submitClericDetails();
 }
 
-const submitClericDetails = () => {
+	const submitClericDetails = () => {
 	$('#submitClericDetails').on('click', function (e) {
 		e.preventDefault();
 		$(this).addClass('inactive');
@@ -1583,7 +1582,9 @@ const submitClericDetails = () => {
 		$('.spellTop').append(`Domain: ${domain}`);
 
 		if (domain == 'Knowledge') {
-			$('.form').append(`<form action="">
+			$('.form').append(`
+		<p>The knowledge domain gives you two spells at first level that are automatically prepared each day: <span class="italic">Command</span> and <span class="italic">Identify</span> These spells are automatically prepared at the beginning of every day. Refer to page 59 of the Player's Handbook for more details and spells earned at higher levels.</p>
+		<form action="">
 		<label for="domainLanguage">Additional Language:</label>
 		<select name="domainLanguage">
 			<option value="Common">Common (Standard)</option>
@@ -1604,27 +1605,21 @@ const submitClericDetails = () => {
 			<option value="Undercommon">Undercommon (Exotic)</option>
 		</select>
 	`);
+	$('#firstLevelSpells').append(`<li>Command</li><li>Identify</li>`);
+	}
+})
 }
+
+
 
 //Options for Druids 
 
-const druidBasics = () => {
-	console.log('woops, still adding some Cleric domain info before moving on to Druid.')
-}
+// const druidBasics = () => {
+// 	console.log('woops, still adding some Cleric domain info before moving on to Druid.');
+// }
 
 
 
 
 
 //add code to get skill proficiencies to player object at the end
-
-
-
-
-
-
-
-
-
-
-

@@ -58,6 +58,14 @@ p {
 	line-height: 1.6;
 }
 
+ul {
+	padding-left: 15px;
+}
+
+.italic {
+	font-style: italic;
+}
+
 .description {
 	font-size: 1.8rem;
 	font-family: 'Oxygen', sans-serif;
@@ -232,7 +240,7 @@ p {
 }
 
 
-.spellTop{
+.spellTop {
 	display: flex;
 	flex-wrap: wrap;
 	font-family: 'Oxygen', sans-serif;
