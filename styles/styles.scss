@@ -52,6 +52,11 @@ h4 {
 	font-family: 'Ubuntu', sans-serif;
 	font-size: 1.4rem;
 	color: $primary-color;
+	margin-bottom: 0px;
+}
+
+h4 + ul {
+	margin-top: 4px;
 }
 
 p {
@@ -115,13 +120,16 @@ ul {
 	font-size: 1.6rem;
 	height: 130px;
 	display: flex;
-	flex-direction: column;
+	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	height: 130px;
 	font-family: 'Oxygen', sans-serif;
 	padding: 10px 30px;
 	border-bottom: 1px solid $accent-color;
+	p {
+		width: 25%;
+	}
 }
 
 .abilityScores {
@@ -269,6 +277,7 @@ ul {
 	padding-bottom: 30px;
 	p {
 		padding-left: 30px;
+		padding-right: 30px;
 	}
 	form {
 		display: flex;
@@ -276,11 +285,16 @@ ul {
 		flex-wrap: wrap;
 		padding: 30px;
 		padding-top: 10px;
+		p {
+			padding-left: 0px;
+		}
 
 	}
 	label {
 		margin-top: 15px;
 		margin-bottom: 5px;
+		display: block;
+		width: 100%;
 	}
 	input[type=text] {
 		border: none;

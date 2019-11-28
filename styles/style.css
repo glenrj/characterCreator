@@ -160,7 +160,11 @@ h3 {
 h4 {
   font-family: 'Ubuntu', sans-serif;
   font-size: 1.4rem;
-  color: #96001C; }
+  color: #96001C;
+  margin-bottom: 0px; }
+
+h4 + ul {
+  margin-top: 4px; }
 
 p {
   line-height: 1.6; }
@@ -220,10 +224,10 @@ ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   -webkit-box-pack: justify;
@@ -233,6 +237,8 @@ ul {
   font-family: 'Oxygen', sans-serif;
   padding: 10px 30px;
   border-bottom: 1px solid #E3B23C; }
+  .stats p {
+    width: 25%; }
 
 .abilityScores {
   border-bottom: 1px solid #E3B23C; }
@@ -378,7 +384,8 @@ ul {
   font-size: 1.4rem;
   padding-bottom: 30px; }
   .form p {
-    padding-left: 30px; }
+    padding-left: 30px;
+    padding-right: 30px; }
   .form form {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -391,9 +398,13 @@ ul {
         flex-wrap: wrap;
     padding: 30px;
     padding-top: 10px; }
+    .form form p {
+      padding-left: 0px; }
   .form label {
     margin-top: 15px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    display: block;
+    width: 100%; }
   .form input[type=text] {
     border: none;
     border-bottom: 2px solid #E3B23C;

@@ -1,5 +1,4 @@
 //New Player Object
-
 const newPlayer = {
 	abilityRolls: [],
 	currentLevel: 1,
@@ -148,8 +147,10 @@ $(document).ready(function () {
 
 		rollCharacter(newPlayer);
 		let abilityRollsStr = newPlayer.abilityRolls.join(", ");
-		$('.form').append(`<p>Your ability scores are ${abilityRollsStr}. Please assign them to the abilities below. You may also enter your own values if you prefer to roll your ability scores manually.<p>
+		$('.form').html(`
+			<p>Your ability scores are ${abilityRollsStr}. Please assign them to the abilities below. You may also enter your own values if you prefer to roll your ability scores manually.<p>
 			<form action="">
+			
 				<label for="strScore">Strength:</label>
 				<input type="text" name="strScore">
 
@@ -217,7 +218,7 @@ $(document).ready(function () {
 
 			$('#proficiencyBonus').text(2);
 
-			$('.form').append(`<form action="">
+			$('.form').html(`<form action="">
 				<label for="race">Race:</label>
 				<select name="race">
 					<option value="Dwarf">Dwarf</option>
@@ -310,7 +311,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Dwarvish');
 		$('#languages').append(`<li>Dwarvish</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 			<label for="dwarfSubrace">Subrace:</label>
 			<select name="dwarfSubrace">
 				<option value="Hill Dwarf">Hill Dwarf</option>
@@ -393,7 +394,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Elvish');
 		$('#languages').append(`<li>Elvish</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 		<label for="elfSubrace">Subrace:</label>
 		<select name="elfSubrace">
 			<option value="High Elf">High Elf</option>
@@ -428,7 +429,7 @@ $(document).ready(function () {
 					<li>Longbows</li>
 					<li>Shortbows</li>`)
 
-				$('.form').append(`<form action="">
+				$('.form').html(`<form action="">
 					<h4>Proficiencies</h4>
 					<label for="additionalLanguage">Language:</label>
 					<select name="additionalLanguage">
@@ -556,7 +557,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Halfling');
 		$('#languages').append(`<li>Halfling</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 		<label for="halflingSubrace">Subrace:</label>
 		<select name="halflingSubrace">
 			<option value="Stout Halfling">Stout Halfling</option>
@@ -616,7 +617,7 @@ $(document).ready(function () {
 		newPlayer.speed = 30;
 		$('#speed').text(30);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 		<label for="humanLanguage">Additional Language:</label>
 		<select name="humanLanguage">
 			<option value="Common">Common (Standard)</option>
@@ -674,7 +675,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Draconic');
 		$('#languages').append(`<li>Draconic</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 			<label for="draconicAncestry">Draconic Ancestry:</label>
 			<select name="draconicAncestry">
 				<option value="Black">Black</option>
@@ -744,7 +745,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Gnomish');
 		$('#languages').append(`<li>Gnomish</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 			<label for="gnomeSubrace">Subrace:</label>
 			<select name="gnomeSubrace">
 				<option value="Forest Gnome">Forest Gnome</option>
@@ -813,7 +814,7 @@ $(document).ready(function () {
 		newPlayer.languages.push('Elvish');
 		$('#languages').append(`<li>Elvish</li>`);
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 			<label for="halfElfLanguage">Additional Language:</label>
 			<select name="halfElfLanguage">
 				<option value="Common">Common (Standard)</option>
@@ -939,7 +940,7 @@ $(document).ready(function () {
 	//SELECT CLASS AND SET CLASS DETAILS
 
 	const addClassSelection = () => {
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 			<label for="characterClass">Class:</label>
 			<select name="characterClass">
 				<option value="Barbarian">Barbarian</option>
@@ -987,7 +988,6 @@ $(document).ready(function () {
 	}
 
 	//Options for Barbarians
-
 	const barbarianBasics = () => {
 		newPlayer.hitDice = '1d12';
 		$('#hitDice').text('1d12');
@@ -1020,7 +1020,7 @@ $(document).ready(function () {
 		$('#spellcastingAbility').text('None');
 		$('#spellcastingClass').text('None');
 
-		$('.form').append(`<form action="">
+		$('.form').html(`<form action="">
 				<h4>Proficiencies</h4>
 				<p>You may select two skills from this list to gain proficiency in:</p>
 				<ul>
@@ -1143,7 +1143,7 @@ const bardBasics = () => {
 
 	calculateSpellSaveDC();
 
-	$('.form').append(`<form action="">
+	$('.form').html(`<form action="">
 			<h4>Proficiencies</h4>
 			<label for="instrumentProficiencyOne">Instrument Proficiency:</label>
 			<select name="instrumentProficiencyOne">
@@ -1442,7 +1442,7 @@ const clericBasics = () => {
 
 	calculateSpellSaveDC();
 
-	$('.form').append(`<form action="">
+	$('.form').html(`<form action="">
 			<h4>Inventory</h4>
 			<p>Suggested Cleric weapons are a mace and a light crossbow, however the mace may be upgraded to a Warhammer if you are already proficient in warhammers or all Martial Melee Weapons, and you may choose any simple weapon in place of the light crossbow. More information and stats on each weapon can be found on page 149 of the player's handbook.</p>
 			<label for="clericWeapon">Weapon One:</label>
@@ -1535,14 +1535,14 @@ const clericBasics = () => {
 			</select>
 
 			<div class="submit">
-				<input type="submit" value="Finish" id="submitClericDetails">
+				<input type="submit" value="Next" id="submitClericDetails">
 			</div>
 			`)
 
-			submitClericDetails();
+	submitClericDetails();
 }
 
-	const submitClericDetails = () => {
+const submitClericDetails = () => {
 	$('#submitClericDetails').on('click', function (e) {
 		e.preventDefault();
 		$(this).addClass('inactive');
@@ -1582,11 +1582,15 @@ const clericBasics = () => {
 		$('.spellTop').append(`Domain: ${domain}`);
 
 		if (domain == 'Knowledge') {
-			$('.form').append(`
-		<p>The knowledge domain gives you two spells at first level that are automatically prepared each day: <span class="italic">Command</span> and <span class="italic">Identify</span> These spells are automatically prepared at the beginning of every day. Refer to page 59 of the Player's Handbook for more details and spells earned at higher levels.</p>
-		<form action="">
-		<label for="domainLanguage">Additional Language:</label>
-		<select name="domainLanguage">
+			$('#firstLevelSpells').append(`<li>Command</li><li>Identify</li>`);
+			newPlayer.spells.firstLevelSpells.push('Command');
+			newPlayer.spells.firstLevelSpells.push('Identify');
+
+			$('.form').html(`
+			<p>The knowledge domain gives you two spells at first level that are automatically prepared each day: <span class="italic">Command</span> and <span class="italic">Identify</span> These spells are automatically prepared at the beginning of every day. Refer to page 59 of the Player's Handbook for more details and spells earned at higher levels.</p>
+			<form action="">
+			<label for="domainLanguage">Additional Language:</label>
+			<select name="domainLanguage">
 			<option value="Common">Common (Standard)</option>
 			<option value="Dwarvish">Dwarvish (Standard)</option>
 			<option value="Elvish">Elvish (Standard)</option>
@@ -1604,19 +1608,91 @@ const clericBasics = () => {
 			<option value="Sylvan">Sylvan (Exotic)</option>
 			<option value="Undercommon">Undercommon (Exotic)</option>
 		</select>
-	`);
-	$('#firstLevelSpells').append(`<li>Command</li><li>Identify</li>`);
-	}
-})
+		
+		< div class= "submit" >
+			<input type="submit" value="Next" id="knowledgeDomain">
+		</div>`);
+
+		knowledgeDomain();
+		} else if (domain == 'Life') {
+			$('#firstLevelSpells').append(`<li>Burning Hands</li><li>Faerie Fire</li>`);
+			newPlayer.spells.firstLevelSpells.push('Burning Hands');
+			newPlayer.spells.firstLevelSpells.push('Faerie Fire');
+
+			let light = newPlayer.spells.cantrips.includes('Light');
+			if (!light) {
+				newPlayer.spells.cantrips.push('Light');
+				$('#cantrips').append(`<li>Light</li>`);
+			}
+
+			$('#abilities').append(`<li>Warding Flare</li>`);
+			newPlayer.abilities.push('Warding Flare');
+		} else if (domain === 'Nature') {
+			$('#firstLevelSpells').append(`<li>Animal Friendship</li><li>Speak with Animals</li>`);
+			newPlayer.spells.firstLevelSpells.push('Animal Friendship');
+			newPlayer.spells.firstLevelSpells.push('Speak with Animals');
+
+			$('#proficiencies').append(`<li>Heavy Armour</li>`)
+			newPlayer.proficiencies.push('Heavy Armour');
+
+			$('.form').append(`<p>The Nature domain allows you to learn one Druid Cantrip of your choice. You also gain proficiency in either Animal Handling, Nature, or Survival. Please choose your cantrip from the list below and select your new proficiency from the list on the character sheet.</p>
+			<form action="">
+			<label for="druidCantrip">Druid Cantrip:</label>
+			<select name="druidCantrip">
+			<option value="Druidcraft">Druidcraft</option>
+			<option value="Guidance">Guidance</option>
+			<option value="Mending">Mending</option>
+			<option value="Poison Spray">Poison Spray</option>
+			<option value="Produce Flame">Produce Flame</option>
+			<option value="Resistance">Resistance</option>
+			<option value="Shillagh">Shillagh</option>
+			<option value="Thorn Whip">Thorn Whip</option>
+			</select>`);
+		} else if (domain === 'Tempest') {
+			$('#firstLevelSpells').append(`<li>Fog Cloud</li><li>Thunderwave</li>`);
+			newPlayer.spells.firstLevelSpells.push('Fog Cloud');
+			newPlayer.spells.firstLevelSpells.push('Thunderwave');
+
+			$('#proficiencies').append(`<li>Heavy Armour</li><li>Martial Weapons</li>`)
+			newPlayer.proficiencies.push('Heavy Armour');
+			newPlayer.proficiencies.push('Marital Weapons');
+
+			$('#abilities').append(`<li>Wrath of the Storm</li>`);
+			newPlayer.abilities.push('Wrath of the Storm');
+		} else if (domain == 'Trickery') {
+			$('#firstLevelSpells').append(`<li>Charm Person</li><li>Disguise Self</li>`);
+			newPlayer.spells.firstLevelSpells.push('Charm Person');
+			newPlayer.spells.firstLevelSpells.push('Disguise Self');
+
+			$('#abilities').append(`<li>Blessing of the Trickster</li>`);
+			newPlayer.abilities.push('Blessing of the Trickster');
+		} else if (domain == 'War') {
+			$('#firstLevelSpells').append(`<li>Divine Favour</li><li>Shield of Faith</li>`);
+			newPlayer.spells.firstLevelSpells.push('Divine Favour');
+			newPlayer.spells.firstLevelSpells.push('Shield of Faith');
+
+			$('#proficiencies').append(`<li>Heavy Armour</li><li>Martial Weapons</li>`)
+			newPlayer.proficiencies.push('Heavy Armour');
+			newPlayer.proficiencies.push('Marital Weapons');
+
+			$('#abilities').append(`<li>War Priest</li>`);
+			newPlayer.abilities.push('War Priest');
+		}
+	});
 }
+
+const knowledgeDomain = () => {
+	//adding submit handlers for each daomin individually
+}
+
 
 
 
 //Options for Druids 
 
-// const druidBasics = () => {
-// 	console.log('woops, still adding some Cleric domain info before moving on to Druid.');
-// }
+const druidBasics = () => {
+	console.log('woops, still adding some Cleric domain info before moving on to Druid.');
+}
 
 
 
