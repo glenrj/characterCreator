@@ -172,6 +172,20 @@ p {
 ul {
   padding-left: 15px; }
 
+a,
+a:active,
+a:visited {
+  color: #96001C;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  text-decoration: none; }
+  a:hover, a:focus,
+  a:active:hover,
+  a:active:focus,
+  a:visited:hover,
+  a:visited:focus {
+    text-decoration: underline; }
+
 .italic {
   font-style: italic; }
 
@@ -397,7 +411,8 @@ ul {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
     padding: 30px;
-    padding-top: 10px; }
+    padding-top: 10px;
+    padding-bottom: 0px; }
     .form form p {
       padding-left: 0px; }
   .form label {

@@ -1587,7 +1587,8 @@ const submitClericDetails = () => {
 			newPlayer.spells.firstLevelSpells.push('Identify');
 
 			$('.form').html(`
-			<p>The knowledge domain gives you two spells at first level that are automatically prepared each day: <span class="italic">Command</span> and <span class="italic">Identify</span> These spells are automatically prepared at the beginning of every day. Refer to page 59 of the Player's Handbook for more details and spells earned at higher levels.</p>
+			<form action="">
+			<p>The knowledge domain gives you and additional language as well as two spells at first level that are automatically prepared each day: <span class="italic">Command</span> and <span class="italic">Identify</span> These spells are automatically prepared at the beginning of every day. Refer to page 59 of the Player's Handbook for more details and spells earned at higher levels.</p>
 			<form action="">
 			<label for="domainLanguage">Additional Language:</label>
 			<select name="domainLanguage">
@@ -1609,9 +1610,10 @@ const submitClericDetails = () => {
 			<option value="Undercommon">Undercommon (Exotic)</option>
 		</select>
 		
-		< div class= "submit" >
+		<div class="submit">
 			<input type="submit" value="Next" id="knowledgeDomain">
-		</div>`);
+		</div>
+		</form>`);
 
 		knowledgeDomain();
 		} else if (domain == 'Life') {
@@ -1681,17 +1683,48 @@ const submitClericDetails = () => {
 	});
 }
 
+// knowledge domain handler
 const knowledgeDomain = () => {
 	//adding submit handlers for each daomin individually
+	$('#knowledgeDomain').on('click', function (e) {
+		e.preventDefault();
+		$(this).addClass('inactive');
+
+		let language = $('[name=domainLanguage] option:selected').val();
+		newPlayer.languages.push(language);
+		$('#languages').append(`<li>${language}</li>`);
+	})
 }
 
+// nature domain handler
+const natureDomain = () => {
+	$('#druidCantrip').on('click', function (e) {
+		e.preventDefault();
+		$(this).addClass('inactive');
+
+		let cantrip = $('[name=druidCantrip] option:selected').val();
+		newPlayer.spells.cantrips.push(cantrip);
+		$('#cantrips').append(`${cantrip}`);
+	})
+}
 
 
 
 //Options for Druids 
 
 const druidBasics = () => {
-	console.log('woops, still adding some Cleric domain info before moving on to Druid.');
+	newPlayer.hitDice = '1d8';
+	$('#hitDice').text('1d8');
+
+	newPlayer.maxHP = newPlayer.maxHP + 8 + newPlayer.abilityModifiers.constitution;
+	$('#currentHP').text(`${newPlayer.maxHP}`);
+	$('#maxHP').text(`${newPlayer.maxHP}`);
+
+	newPlayer.proficiencies.push('light armor', 'medium armor', 'shields', 'simple weapons');
+	$('#proficiencies').append(`<li>Light armor</li>
+			<li>Medium armor</li>
+			<li>Shields</li>
+			<li>Simple weapons</li>`);
 }
 
 

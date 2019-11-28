@@ -67,6 +67,18 @@ ul {
 	padding-left: 15px;
 }
 
+ a,
+ a:active,
+ a:visited {
+	 color: $primary-color;
+	 transition: 0.2s;
+	 text-decoration: none;
+	 &:hover,
+	 &:focus {
+		 text-decoration: underline;
+	 }
+ }
+
 .italic {
 	font-style: italic;
 }
@@ -285,6 +297,7 @@ ul {
 		flex-wrap: wrap;
 		padding: 30px;
 		padding-top: 10px;
+		padding-bottom: 0px;
 		p {
 			padding-left: 0px;
 		}
