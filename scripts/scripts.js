@@ -988,6 +988,7 @@ $(document).ready(function () {
 	}
 
 	//Options for Barbarians
+
 	const barbarianBasics = () => {
 		newPlayer.hitDice = '1d12';
 		$('#hitDice').text('1d12');
@@ -1101,8 +1102,8 @@ $(document).ready(function () {
 			newPlayer.weapons.push(weaponOne, weaponTwo);
 		});
 	}
-
 })
+
 // Options for Bards
 
 const bardBasics = () => {
@@ -1445,7 +1446,7 @@ const clericBasics = () => {
 	$('.form').html(`<form action="">
 			<h4>Inventory</h4>
 			<p>Suggested Cleric weapons are a mace and a light crossbow, however the mace may be upgraded to a Warhammer if you are already proficient in warhammers or all Martial Melee Weapons, and you may choose any simple weapon in place of the light crossbow. More information and stats on each weapon can be found on page 149 of the player's handbook.</p>
-			<label for="clericWeapon">Weapon One:</label>
+			<label for="clericWeaponOne">Weapon One:</label>
 			<select name="clericWeaponOne">
 				<option value="Mace (1d6 bludgeoning)">Mace (1d6 bludgeoning)</option>
 				<option value="Warhammer (1d8 bludgeoning)">Warhammer (1d8 bludgeoning)</option>
@@ -1537,7 +1538,7 @@ const clericBasics = () => {
 			<div class="submit">
 				<input type="submit" value="Next" id="submitClericDetails">
 			</div>
-			`)
+			`);
 
 	submitClericDetails();
 }
@@ -1634,8 +1635,8 @@ const submitClericDetails = () => {
 			newPlayer.spells.firstLevelSpells.push('Animal Friendship');
 			newPlayer.spells.firstLevelSpells.push('Speak with Animals');
 
-			$('#proficiencies').append(`<li>Heavy Armour</li>`)
-			newPlayer.proficiencies.push('Heavy Armour');
+			$('#proficiencies').append(`<li>Heavy armor</li>`)
+			newPlayer.proficiencies.push('Heavy armor');
 
 			$('.form').append(`<p>The Nature domain allows you to learn one Druid Cantrip of your choice. You also gain proficiency in either Animal Handling, Nature, or Survival. Please choose your cantrip from the list below and select your new proficiency from the list on the character sheet.</p>
 			<form action="">
@@ -1650,13 +1651,15 @@ const submitClericDetails = () => {
 			<option value="Shillagh">Shillagh</option>
 			<option value="Thorn Whip">Thorn Whip</option>
 			</select>`);
+
+			natureDomain();
 		} else if (domain === 'Tempest') {
 			$('#firstLevelSpells').append(`<li>Fog Cloud</li><li>Thunderwave</li>`);
 			newPlayer.spells.firstLevelSpells.push('Fog Cloud');
 			newPlayer.spells.firstLevelSpells.push('Thunderwave');
 
-			$('#proficiencies').append(`<li>Heavy Armour</li><li>Martial Weapons</li>`)
-			newPlayer.proficiencies.push('Heavy Armour');
+			$('#proficiencies').append(`<li>Heavy armor</li><li>Martial Weapons</li>`)
+			newPlayer.proficiencies.push('Heavy armor');
 			newPlayer.proficiencies.push('Marital Weapons');
 
 			$('#abilities').append(`<li>Wrath of the Storm</li>`);
@@ -1673,8 +1676,8 @@ const submitClericDetails = () => {
 			newPlayer.spells.firstLevelSpells.push('Divine Favour');
 			newPlayer.spells.firstLevelSpells.push('Shield of Faith');
 
-			$('#proficiencies').append(`<li>Heavy Armour</li><li>Martial Weapons</li>`)
-			newPlayer.proficiencies.push('Heavy Armour');
+			$('#proficiencies').append(`<li>Heavy armor</li><li>Martial Weapons</li>`)
+			newPlayer.proficiencies.push('Heavy armor');
 			newPlayer.proficiencies.push('Marital Weapons');
 
 			$('#abilities').append(`<li>War Priest</li>`);
@@ -1720,15 +1723,175 @@ const druidBasics = () => {
 	$('#currentHP').text(`${newPlayer.maxHP}`);
 	$('#maxHP').text(`${newPlayer.maxHP}`);
 
-	newPlayer.proficiencies.push('light armor', 'medium armor', 'shields', 'simple weapons');
+	newPlayer.proficiencies.push('light armor', 'medium armor', 'shields', 'clubs', 'daggers', 'darts', 'javelins', 'maces', 'quarterstaffs', 'scimitars', 'sickles', 'slings', 'spears', 'herbalism kit');
 	$('#proficiencies').append(`<li>Light armor</li>
 			<li>Medium armor</li>
 			<li>Shields</li>
-			<li>Simple weapons</li>`);
+			<li>Clubs</li>
+			<li>Daggers</li>
+			<li>Darts</li>
+			<li>Javelins</li>
+			<li>Maces</li>
+			<li>Quarterstaffs</li>
+			<li>Scimitars</li>
+			<li>Sickles</li>
+			<li>Slings</li>
+			<li>Spears</li>
+			<li>Herbalism kit</li>`);
+
+	newPlayer.savingThrows.push('wisdom', 'intelligence');
+	$('#wisSavingThrow').addClass('savingThrow');
+	$('#intSavingThrow').addClass('savingThrow');
+
+	newPlayer.armor.push('Leather armor');
+	$('#armor').append(`<li>Leather armor</li>`);
+
+	// THIS IS WHERE YOU BEGAN EDITING WITHOUT INTERNET & THE JQUERY CDN, ALL WORKED BEFORE THIS
+
+	newPlayer.inventory.push('Druidic Focus', 'explorer\'s pack');
+	$('#inventory').push(`<li>Druidic Focus</li><li>Explorer's Pack</li>`);
+	
+	newPlayer.spellcastingAbility = 'Wisdom';
+	$('#spellcastingAbility').text('Wisdom');
+	$('#spellcastingClass').text('Druid');
+
+	newPlayer.languages.push('Druidic');
+	$('#languages').append(`<li>Druidic</li>`);
+
+	newPlayer.spells.firstLevelSpellSlots = 2;
+	$('#firstLevelSpellSlots').text(2);
+
+	newPlayer.abilities.push('Ritual Casting', 'Spellcasting Focus');
+	$('#abilities').append(`<li>Ritual Casting</li><li>Spellcasting Focus</li>`);
+
+	calculateSpellSaveDC();
+
+	$('.form').html(`<form action="">
+			<h4>Inventory</h4>
+			<p>Suggested Druid items are a wooden shield and a scimitar, but you may choose any items from the lists below. More information and stats on each weapon can be found on page 149 of the player's handbook.</p>
+			<label for="druidWeaponOne">Item One:</label>
+			<select name="druidWeaponOne">
+				<option value="Wooden Shield">Wooden Shield</option>
+				<option value="Club (1d4 bludgeoning)">Club (1d4 bludgeoning)</option>
+				<option value="Dagger (1d4 piercing)">Dagger (1d4 piercing)</option>
+				<option value="Greatclub (1d8 bludgeoning)">Greatclub (1d8 bludgeoning)</option>
+				<option value="Handaxe (1d6 slashing)">Handaxe (1d6 slashing)</option>
+				<option value="Javelin (1d6 piercing)">Javelin (1d6 piercing)</option>
+				<option value="Light hammer (1d4 bludgeoning)">Light hammer (1d4 bludgeoning)</option>
+				<option value="Mace (1d6 bludgeoning)">Mace (1d6 bludgeoning)</option>
+				<option value="Quarterstaff (1d6 bludgeoning)">Quarterstaff (1d6 bludgeoning)</option>
+				<option value="Sickle (1d4 slashing)">Sickle (1d4 slashing)</option>
+				<option value="Spear (1d6 piercing)">Spear (1d6 piercing)</option>
+				<option value="Light crossbow (1d8 piercing)">Light crossbow (1d8 piercing)</option>
+				<option value="Dart (1d4 piercing)">Dart (1d4 piercing)</option>
+				<option value="Shortbow (1d6 piercing)">Shortbow (1d6 piercing)</option>
+				<option value="Sling (1d4 bludgeoning)">Sling (1d4 bludgeoning)</option>
+			</select>
+			<label for="druidWeaponTwo">Item Two:</label>
+			<select name="druidWeaponTwo">
+				<option value="Scimitar (1d6 slashing)">Scimitar (1d6 slashing)</option>
+				<option value="Club (1d4 bludgeoning)">Club (1d4 bludgeoning)</option>
+				<option value="Dagger (1d4 piercing)">Dagger (1d4 piercing)</option>
+				<option value="Greatclub (1d8 bludgeoning)">Greatclub (1d8 bludgeoning)</option>
+				<option value="Handaxe (1d6 slashing)">Handaxe (1d6 slashing)</option>
+				<option value="Javelin (1d6 piercing)">Javelin (1d6 piercing)</option>
+				<option value="Light hammer (1d4 bludgeoning)">Light hammer (1d4 bludgeoning)</option>
+				<option value="Mace (1d6 bludgeoning)">Mace (1d6 bludgeoning)</option>
+				<option value="Quarterstaff (1d6 bludgeoning)">Quarterstaff (1d6 bludgeoning)</option>
+				<option value="Sickle (1d4 slashing)">Sickle (1d4 slashing)</option>
+				<option value="Spear (1d6 piercing)">Spear (1d6 piercing)</option>
+			</select>		
+			<h4>Skills</h4>
+			<p>You gain proficiency in two skills of your choice from the following list. Please select them on the character sheet below.</p>
+			<ul>
+				<li>Arcana</li>
+				<li>Animal Handling</li>
+				<li>Insight</li>
+				<li>Medicine</li>
+				<li>Nature</li>
+				<li>Perception</li>
+				<li>Religion</li>
+				<li>Survivial</li>
+			</ul>
+			<h4>Spellcasting</h4>
+			<p>See page 207 of the Player's Handbook to reference descriptions of each spell.</p>
+			<label for="cantripOne">Cantrip:</label>
+			<select name="cantripOne">
+				<option value="Druidcraft">Druidcraft</option>
+				<option value="Guidance">Guidance</option>
+				<option value="Mending">Mending</option>
+				<option value="Poison Spray">Poison Spray</option>
+				<option value="Produce Flame">Produce Flame</option>
+				<option value="Resistance">Resistance</option>
+				<option value="Shillelagh">Shillelagh</option>
+				<option value="Thorn Whip">Thorn Whip</option>
+			</select>
+			<label for="cantripTwo">Cantrip:</label>
+			<select name="cantripTwo">
+				<option value="Druidcraft">Druidcraft</option>
+				<option value="Guidance">Guidance</option>
+				<option value="Mending">Mending</option>
+				<option value="Poison Spray">Poison Spray</option>
+				<option value="Produce Flame">Produce Flame</option>
+				<option value="Resistance">Resistance</option>
+				<option value="Shillelagh">Shillelagh</option>
+				<option value="Thorn Whip">Thorn Whip</option>
+			</select>
+			<h4>Druid Circle</h4>
+			<p>Druidic society is organized into circles which share a common philosophy and outlook on the world. Descriptions of each circle can be found at the end of the class description, on page 68 of the Player's Handbook. This choice will not have any first-level implications but influence your character's development as you level up.</p>
+			<label for='druidCircle'>Circle:</label>
+			<select name='druidCircle'>
+				<option value='Circle of the land'>Circle of the land</option>
+				<option value='Circle of the moon'>Circle of the moon</option>
+			</select>
+			<div class="submit">
+				<input type="submit" value="Next" id="submitDruidDetails">
+			</div>
+			`);
+
+			submitDruidDetails();
 }
 
+const submitDruidDetails = () => {
+	$('#submitBardDetails').on('click', function (e) {
+		e.preventDefault();
+		$(this).addClass('inactive');
+
+		newPlayer.skillProficiencies = $(".proficient").toArray();
+		
+		let weaponOne = $('[name=druidWeaponOne] option:selected').val();
+		let weaponTwo = $('[name=druidWeaponTwo] option:selected').val();
+
+		newPlayer.inventory.push(weaponOne, weaponTwo);
+		$('#weapons').append(`<li>${weaponOne}</li><li>${weaponTwo}</li>`);
+
+		let cantripOne = $('[name=cantripOne] option:selected').val();
+		let cantripTwo = $('[name=cantripTwo] option:selected').val();
+		newPlayer.spells.cantrips.push(cantripOne, cantripTwo);
+		$('#cantrips').append(`<li>${cantripOne}</li><li>${cantripTwo}</li>`);
+
+		let circle = $('[name=druidCircle] option:selected').val();
+		newPlayer.abilities.push(`Druid Circle: ${cirlce}`);
+		$('#abilities').append(`<li>Druid Circle: ${circle}</li>`);
+	});
+}
+
+//Options for Fighters
+
+// const fighterBasics = () => {
+// 	newPlayer.hitDice = '1d10';
+// 	$('#hitDice').text('1d10');
+
+// 	newPlayer.maxHP = newPlayer.maxHP + 10 + newPlayer.abilityModifiers.constitution;
+// 	$('#currentHP').text(`${newPlayer.maxHP}`);
+// 	$('#maxHP').text(`${newPlayer.maxHP}`);
+
+// 	newPlayer.proficiencies.push('all armor', 'shields', 'simple weapons');
+// 	$('#proficiencies').append(`<li>all armor</li>
+// 	<li>shields</li>`);
+
+// }
 
 
-
-
+// check that all self-selected proficiencies get added into the array
 //add code to get skill proficiencies to player object at the end
