@@ -1943,8 +1943,3 @@ const fighterBasics = () => {
 			`);
 
 }
-
-
-// check that all self-selected proficiencies get added into the array
-//add code to get skill proficiencies to player object at the end
-//make a note that stats are not changed based on armor selections - in case you get more than one option, all armor is assumed to be unequipped.
