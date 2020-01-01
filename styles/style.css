@@ -191,7 +191,7 @@ a:visited {
 
 .description {
   font-size: 1.8rem;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   margin-bottom: 30px; }
 
 .buttonDiv {
@@ -226,7 +226,7 @@ a:visited {
           justify-content: space-between;
   font-size: 1.8rem;
   height: 140px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   padding: 10px 30px;
   border-bottom: 1px solid #E3B23C; }
   .basic p {
@@ -248,7 +248,7 @@ a:visited {
       -ms-flex-pack: justify;
           justify-content: space-between;
   height: 130px;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   padding: 10px 30px;
   border-bottom: 1px solid #E3B23C; }
   .stats p {
@@ -275,7 +275,7 @@ a:visited {
           justify-content: space-between;
   width: 50%;
   margin: 0 auto;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.6rem;
   padding: 20px 0px; }
 
@@ -291,7 +291,7 @@ a:visited {
       -ms-flex-align: center;
           align-items: center; }
   .score p {
-    font-family: 'Oxygen', sans-serif; }
+    font-family: 'Source Sans Pro', sans-serif; }
   .score .abilityScore {
     font-size: 2rem;
     font-weight: bold; }
@@ -316,7 +316,7 @@ a:visited {
   .skillLists ul {
     padding: 0px; }
   .skillLists li {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.6rem;
     list-style: none;
     border: 1px solid #E3B23C;
@@ -337,10 +337,10 @@ a:visited {
 .proficiencies, .abilities, .inventory {
   width: 50%; }
   .proficiencies p, .abilities p, .inventory p {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.6rem; }
   .proficiencies ul, .abilities ul, .inventory ul {
-    font-family: 'Oxygen', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 1.4rem; }
 
 .proficiencies {
@@ -375,7 +375,7 @@ a:visited {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.4rem; }
   .spellTop p {
     min-width: 25%; }
@@ -384,7 +384,7 @@ a:visited {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.4rem; }
   .spellBottom div {
     width: 33%; }
@@ -394,7 +394,7 @@ a:visited {
   display: block;
   margin: 20px auto;
   border: 2px solid #96001C;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.4rem;
   padding-bottom: 30px; }
   .form p {
@@ -419,7 +419,10 @@ a:visited {
     margin-top: 15px;
     margin-bottom: 5px;
     display: block;
-    width: 100%; }
+    width: 100%;
+    font-weight: 600; }
+  .form label + p {
+    margin-top: 0px; }
   .form input[type=text] {
     border: none;
     border-bottom: 2px solid #E3B23C;
@@ -461,7 +464,7 @@ a:visited {
 
 .abilityScoreOption li {
   text-align: center;
-  font-family: 'Oxygen', sans-serif;
+  font-family: 'Source Sans Pro', sans-serif;
   font-size: 1.6rem;
   list-style: none;
   border: 1px solid #E3B23C;

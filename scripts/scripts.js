@@ -980,6 +980,8 @@ $(document).ready(function () {
 				clericBasics();
 			} else if (characterClass == 'Druid') {
 				druidBasics();
+			} else if (characterClass == 'Fighter') {
+				fighterBasics();
 			} else {
 				$('.form').append('<p>Please choose another class (Barbarian, Bard, or Cleric), this one is still being worked on!</p>')
 			}
@@ -1878,20 +1880,71 @@ const submitDruidDetails = () => {
 
 //Options for Fighters
 
-// const fighterBasics = () => {
-// 	newPlayer.hitDice = '1d10';
-// 	$('#hitDice').text('1d10');
+const fighterBasics = () => {
+	newPlayer.hitDice = '1d10';
+	$('#hitDice').text('1d10');
 
-// 	newPlayer.maxHP = newPlayer.maxHP + 10 + newPlayer.abilityModifiers.constitution;
-// 	$('#currentHP').text(`${newPlayer.maxHP}`);
-// 	$('#maxHP').text(`${newPlayer.maxHP}`);
+	newPlayer.maxHP = newPlayer.maxHP + 10 + newPlayer.abilityModifiers.constitution;
+	$('#currentHP').text(`${newPlayer.maxHP}`);
+	$('#maxHP').text(`${newPlayer.maxHP}`);
 
-// 	newPlayer.proficiencies.push('all armor', 'shields', 'simple weapons');
-// 	$('#proficiencies').append(`<li>all armor</li>
-// 	<li>shields</li>`);
+	newPlayer.proficiencies.push('all armor', 'shields', 'simple weapons', 'martial weapons');
+	$('#proficiencies').append(`<li>All armor</li>
+		<li>Shields</li>
+		<li>Simple weapons</li>
+		<li>Martial weapons</li>`);
 
-// }
+	$('#spellcastingAbility').text('None');
+	$('#spellcastingClass').text('None');
+
+	newPlayer.savingThrows.push('strength', 'constitution');
+	$('#strSavingThrow').addClass('savingThrow');
+	$('#conSavingThrow').addClass('savingThrow');
+
+	$('.form').html(`<form action="">
+		<h4>Proficiencies</h4>
+		<p>You may select two skills from this list to gain proficiency in:</p>
+		<ul>
+			<li>Acrobatics</li>
+			<li>Animal Handling</li>
+			<li>Athletics</li>
+			<li>History</li>
+			<li>Insight</li>
+			<li>Intimidation</li>
+			<li>Perception</li>
+			<li>Survival</li>
+		</ul>
+		<p>Please make your selection on the character sheet below.
+		<h4>Inventory</h4>
+		<p>Please select your starting equipment. You will recieve a longbow with 20 arrows in addition to your selections below. For more information about the equipment, an armor table can be found on page 145 of the Player's handbook, and the weapons table on page 149.</p>
+		<label for="armor">Armor:</label>
+		<select name="armor">
+			<option value="Chain mail">Chain mail</option>
+			<option value="Leather armor">Leather armor</option>
+		</select>
+		<label for="weaponOne">Martial Weapon:</label>
+		<p>You may select either a martial weapon and a shield or two martial weapons</p>
+		<select name="weaponOne">
+			<option value="Battleaxe (1d8 slashing)">Battleaxe (1d8 slashing)</option>
+			<option value="Flail (1d8 bludgeoning)">Flail (1d8 bludgeoning)</option>
+			<option value="Glaive (1d10 slashing) ">Glaive (1d10 slashing) </option>
+			<option value="Greataxe (1d12 slashing)">Greataxe (1d12 slashing)</option>
+			<option value="Halberd (1d10 slashing)">Halberd (1d10 slashing)</option>
+			<option value="Lance (1d12 piercing)">Lance (1d12 piercing)</option>
+			<option value="Longsword (1d8 slashing)">Longsword (1d8 slashing)</option>
+			<option value=""></option>
+		</select>
+
+		<label for="weaponTwo">Second Martial Weapon (or shield):</label>
+		<select name="weaponTwo">
+			<option value="Battleaxe (1d8 slashing)">Battleaxe (1d8 slashing)</option>
+		</select>
+
+			`);
+
+}
 
 
 // check that all self-selected proficiencies get added into the array
 //add code to get skill proficiencies to player object at the end
+//make a note that stats are not changed based on armor selections - in case you get more than one option, all armor is assumed to be unequipped.

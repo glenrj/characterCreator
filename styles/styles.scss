@@ -85,7 +85,7 @@ ul {
 
 .description {
 	font-size: 1.8rem;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	margin-bottom: 30px;
 }
 
@@ -120,7 +120,7 @@ ul {
 	justify-content: space-between;
 	font-size: 1.8rem;
 	height: 140px;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	padding: 10px 30px;
 	border-bottom: 1px solid $accent-color;
 	p {
@@ -136,7 +136,7 @@ ul {
 	flex-wrap: wrap;
 	justify-content: space-between;
 	height: 130px;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	padding: 10px 30px;
 	border-bottom: 1px solid $accent-color;
 	p {
@@ -159,7 +159,7 @@ ul {
 	justify-content: space-between;
 	width: 50%;
 	margin: 0 auto;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1.6rem;
 	padding: 20px 0px;
 }
@@ -169,7 +169,7 @@ ul {
 	flex-direction: column;
 	align-items: center;
 	p {
-		font-family: 'Oxygen', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 	}
 	.abilityScore {
 		font-size: 2rem;
@@ -195,7 +195,7 @@ ul {
 		padding: 0px;
 	}
 	li {
-		font-family: 'Oxygen', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.6rem;
 		list-style: none;
 		border: 1px solid $accent-color;
@@ -221,11 +221,11 @@ ul {
 .proficiencies, .abilities, .inventory {
 	width: 50%;
 	p {
-		font-family: 'Oxygen', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.6rem;
 	}
 	ul {
-		font-family: 'Oxygen', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.4rem;
 	}
 }
@@ -263,7 +263,7 @@ ul {
 .spellTop {
 	display: flex;
 	flex-wrap: wrap;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1.4rem;
 	p {
 		min-width: 25%;
@@ -272,7 +272,7 @@ ul {
 
 .spellBottom {
 	display: flex;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1.4rem;
 	div {
 		width: 33%;
@@ -284,7 +284,7 @@ ul {
 	display: block;
 	margin: 20px auto;
 	border: 2px solid $primary-color;
-	font-family: 'Oxygen', sans-serif;
+	font-family: 'Source Sans Pro', sans-serif;
 	font-size: 1.4rem;
 	padding-bottom: 30px;
 	p {
@@ -301,13 +301,16 @@ ul {
 		p {
 			padding-left: 0px;
 		}
-
 	}
 	label {
 		margin-top: 15px;
 		margin-bottom: 5px;
 		display: block;
 		width: 100%;
+		font-weight: 600;
+	}
+	label + p {
+		margin-top: 0px;
 	}
 	input[type=text] {
 		border: none;
@@ -355,7 +358,7 @@ ul {
 	}
 	li {
 		text-align: center;
-		font-family: 'Oxygen', sans-serif;
+		font-family: 'Source Sans Pro', sans-serif;
 		font-size: 1.6rem;
 		list-style: none;
 		border: 1px solid $accent-color;
